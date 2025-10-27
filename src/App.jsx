@@ -1,28 +1,31 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import FeatureGrid from './components/FeatureGrid';
+import Showcase from './components/Showcase';
+import CTA from './components/CTA';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen w-full bg-black text-white">
+      {/* Simple top nav */}
+      <header className="fixed inset-x-0 top-0 z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#" className="flex items-center gap-2">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400 text-black font-bold">U</span>
+          <span className="text-sm font-semibold tracking-tight">Flux UGC</span>
+        </a>
+        <nav className="hidden items-center gap-6 text-sm text-white/80 sm:flex">
+          <a href="#features" className="hover:text-white">Features</a>
+          <a href="#showcase" className="hover:text-white">Showcase</a>
+          <a href="#get-started" className="rounded-lg border border-white/20 bg-white/5 px-4 py-2 font-medium backdrop-blur hover:bg-white/10">Get started</a>
+        </nav>
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <FeatureGrid />
+        <Showcase />
+        <CTA />
+      </main>
+    </div>
+  );
+}
